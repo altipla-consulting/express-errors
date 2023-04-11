@@ -6,9 +6,15 @@ export function errorHandler(err: Error, _req: Request, res: Response, _next: Ne
     res.status(500).send(`
       <!DOCTYPE html>
       <html lang="es">
-      <head></head>
+      <head>
+        <meta charset="utf-8">
+        <title>
+          Error interno del servidor
+        </title>
+      </head>
       <body>
-        ${err}
+        <h1>${err.message}</h1>
+        <pre>${err.stack}</pre>
       </body>
       </html>
     `)
