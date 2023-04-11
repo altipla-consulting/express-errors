@@ -1,7 +1,20 @@
 
 import { type Request, type Response, type NextFunction } from 'express'
 
-export function errorHandler(_err: Error, _req: Request, res: Response, _next: NextFunction) {
+export function errorHandler(err: Error, _req: Request, res: Response, _next: NextFunction) {
+  if (process.env.NODE_ENV !== 'production') {
+    res.status(500).send(`
+      <!DOCTYPE html>
+      <html lang="es">
+      <head></head>
+      <body>
+        ${err}
+      </body>
+      </html>
+    `)
+    return
+  }
+  
   res.status(500).send(`
   <!DOCTYPE html>
   <html lang="es">
