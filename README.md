@@ -6,7 +6,7 @@ Debug errors while developing with Express.
 ## Installation
 
 ```sh
-$ npm install @altipla/express-errors
+npm install @altipla/express-errors
 ```
 
 
